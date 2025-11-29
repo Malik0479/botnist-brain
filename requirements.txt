@@ -1,0 +1,10 @@
+flask
+pyngrok
+supabase
+langchain
+langchain-community
+langchain-google-genai
+langchain-core
+langchain-text-splitters
+chromadb
+gunicorn
