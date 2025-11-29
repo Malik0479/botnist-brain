@@ -1,10 +1,13 @@
 flask
+gunicorn
 pyngrok
 supabase
+# LangChain Ecosystem (New Structure)
 langchain
-langchain-community
-langchain-google-genai
 langchain-core
+langchain-community
 langchain-text-splitters
+langchain-google-genai
 chromadb
-gunicorn
+# Google AI
+google-generativeai
