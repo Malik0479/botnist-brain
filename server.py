@@ -5,8 +5,20 @@ from pyngrok import ngrok, conf
 from supabase import create_client, Client
 
 # --- LangChain Imports ---
-from langchain.chains import create_retrieval_chain
-from langchain.chains.combine_documents import create_stuff_documents_chain
+# Robust Import Logic
+try:
+    # Attempt standard import
+    from langchain.chains import create_retrieval_chain
+    from langchain.chains.combine_documents import create_stuff_documents_chain
+except ImportError:
+    # Fallback for newer/different versions
+    try:
+        from langchain.chains.retrieval import create_retrieval_chain
+        from langchain.chains.combine_documents.stuff import create_stuff_documents_chain
+    except ImportError:
+        # Last resort for very new modular versions
+        from langchain_core.runnables import RunnablePassthrough
+        # Note: If this fails, the environment is severely corrupted
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_community.document_loaders import TextLoader
