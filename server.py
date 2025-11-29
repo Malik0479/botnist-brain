@@ -5,6 +5,8 @@ from pyngrok import ngrok, conf
 from supabase import create_client, Client
 
 # --- LangChain Imports ---
+from langchain.chains import create_retrieval_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_community.document_loaders import TextLoader
